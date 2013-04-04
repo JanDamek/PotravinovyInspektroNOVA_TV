@@ -39,9 +39,14 @@
     
     int i=0;
     for (UIImage *img in fotky) {
-        NSData *d = UIImagePNGRepresentation(img);
+        double compressionRatio=1;
+        NSData *imgData=UIImageJPEGRepresentation(img,compressionRatio);
+        while ([imgData length]>250000 && compressionRatio>0.01) {
+            compressionRatio=compressionRatio*0.5;
+            imgData=UIImageJPEGRepresentation(img,compressionRatio);
+        }
         NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d",i]];
-        [d writeToFile:dataPath atomically:YES];
+        [imgData writeToFile:dataPath atomically:YES];
         i++;
     }
 }
@@ -54,9 +59,16 @@
     int i=0;
     while ([[NSFileManager defaultManager] fileExistsAtPath:[documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d",i]]]) {
         NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d",i]];
-        NSData *d = [NSData dataWithContentsOfFile:dataPath];
-        UIImage *img = [UIImage imageWithData:d];
-        [fotky addObject:img];
+        NSData *imgData = [NSData dataWithContentsOfFile:dataPath];
+        UIImage *img = [UIImage imageWithData:imgData];
+        
+        double compressionRatio=1;
+        while ([imgData length]>250000 && compressionRatio>0.01) {
+            compressionRatio=compressionRatio*0.5;
+            imgData=UIImageJPEGRepresentation(img,compressionRatio);
+        }
+        
+        [fotky addObject:[UIImage imageWithData:imgData]];
         i++;
     }
 }

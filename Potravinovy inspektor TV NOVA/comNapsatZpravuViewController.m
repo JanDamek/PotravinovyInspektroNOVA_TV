@@ -64,10 +64,13 @@
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
     if ([mediaType isEqualToString:@"public.image"]) {
-        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        //preulozeni pres PNG
-        NSData *d = UIImagePNGRepresentation(image);
-        UIImage *img = [UIImage imageWithData:d];
+        double compressionRatio=1;
+        NSData *imgData=UIImageJPEGRepresentation([info objectForKey:@"UIImagePickerControllerOriginalImage"],compressionRatio);
+        while ([imgData length]>250000 && compressionRatio>0.01) {
+            compressionRatio=compressionRatio*0.5;
+            imgData=UIImageJPEGRepresentation([info objectForKey:@"UIImagePickerControllerOriginalImage"],compressionRatio);
+        }
+        UIImage *img=[[UIImage alloc] initWithData:imgData];
         [self.d.fotky addObject:img];
     }
     [self.d.seznamFotek.collectionView reloadData];
