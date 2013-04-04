@@ -12,10 +12,14 @@
 
 @implementation comAppDelegate
 
-@synthesize mista, odeslano;
+@synthesize mista, odeslano, fotky;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    mista = [[NSMutableArray alloc]init];
+    odeslano = [[NSMutableArray alloc]init];
+    [self loadFotky];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -30,11 +34,36 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES);
+    NSString * documentsDirectoryPath = [paths objectAtIndex:0];
+    
+    int i=0;
+    for (UIImage *img in fotky) {
+        NSData *d = UIImagePNGRepresentation(img);
+        NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d",i]];
+        [d writeToFile:dataPath atomically:YES];
+        i++;
+    }
+}
+
+-(void)loadFotky{
+    fotky = [[NSMutableArray alloc]init];
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES);
+    NSString * documentsDirectoryPath = [paths objectAtIndex:0];
+    
+    int i=0;
+    while ([[NSFileManager defaultManager] fileExistsAtPath:[documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d",i]]]) {
+        NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d",i]];
+        NSData *d = [NSData dataWithContentsOfFile:dataPath];
+        UIImage *img = [UIImage imageWithData:d];
+        [fotky addObject:img];
+        i++;
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [self loadFotky];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

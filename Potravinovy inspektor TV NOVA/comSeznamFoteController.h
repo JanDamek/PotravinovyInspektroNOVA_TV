@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "comAppDelegate.h"
 
-@interface comSeznamFotekKOdeslaniViewController : UICollectionViewController
-
-@property (readonly, getter = getDelegate) comAppDelegate *d;
+@interface comSeznamFoteController : UICollectionViewController
 
 @end

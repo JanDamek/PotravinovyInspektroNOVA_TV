@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "comSeznamFoteController.h"
 
 @class comViewController;
 
@@ -22,5 +23,8 @@
 
 @property CLLocationCoordinate2D coordinates;
 @property (strong, nonatomic) NSIndexPath *vybrano;
+
+@property (strong, nonatomic) comSeznamFoteController *seznamFotek;
+@property int aktFotka;
 
 @end

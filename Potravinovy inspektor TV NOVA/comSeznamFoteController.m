@@ -6,13 +6,12 @@
 //  Copyright (c) 2013 Asseco Solutions, a.s. All rights reserved.
 //
 
-#import "comSeznamFotekKOdeslaniViewController.h"
+#import "comSeznamFoteController.h"
+#import "comAppDelegate.h"
+#import "comFotkaCell.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface comSeznamFotekKOdeslaniViewController ()
-
-@end
-
-@implementation comSeznamFotekKOdeslaniViewController
+@implementation comSeznamFoteController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +26,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self getDelegate].seznamFotek = self;
+    self.view.layer.cornerRadius = 10;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,15 +45,21 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self.d.fotky count];
+    return [[self getDelegate].fotky count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *CellIdentifier = @"fotkaCell";
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    comFotkaCell *cell = (comFotkaCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.layer.cornerRadius = 5;
+    
+    cell.image.image = [[self getDelegate].fotky objectAtIndex:indexPath.row];
     
     return cell;
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [self getDelegate].aktFotka = indexPath.row;
 }
 
 @end

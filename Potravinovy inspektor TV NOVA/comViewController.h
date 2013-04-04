@@ -13,7 +13,6 @@
 
 @interface comViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate>{
     CLLocationManager *locationManager;
-    comMistaViewController *seznamMist;
     
     NSDate *last_places;
     

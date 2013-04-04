@@ -83,7 +83,9 @@
 		F504A590170DCC5600CC300E /* comNovaMistaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F504A58F170DCC5600CC300E /* comNovaMistaTableViewCell.m */; };
 		F504A592170DDDBB00CC300E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F504A591170DDDBB00CC300E /* QuartzCore.framework */; };
 		F504A595170DE17A00CC300E /* comNapsatZpravuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F504A594170DE17A00CC300E /* comNapsatZpravuViewController.m */; };
-		F504A598170DE26B00CC300E /* comSeznamFotekKOdeslaniViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F504A597170DE26B00CC300E /* comSeznamFotekKOdeslaniViewController.m */; };
+		F504A598170DE26B00CC300E /* comSeznamFoteController.m in Sources */ = {isa = PBXBuildFile; fileRef = F504A597170DE26B00CC300E /* comSeznamFoteController.m */; };
+		F504A59B170DFFEB00CC300E /* comFotkaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F504A59A170DFFEB00CC300E /* comFotkaCell.m */; };
+		F504A59E170E186700CC300E /* comDetailFotkyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F504A59D170E186700CC300E /* comDetailFotkyViewController.m */; };
 		F51157A6170C4635002161F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51157A5170C4635002161F4 /* UIKit.framework */; };
 		F51157A8170C4635002161F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51157A7170C4635002161F4 /* Foundation.framework */; };
 		F51157AA170C4635002161F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51157A9170C4635002161F4 /* CoreGraphics.framework */; };
@@ -178,8 +180,12 @@
 		F504A591170DDDBB00CC300E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F504A593170DE17A00CC300E /* comNapsatZpravuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comNapsatZpravuViewController.h; sourceTree = "<group>"; };
 		F504A594170DE17A00CC300E /* comNapsatZpravuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comNapsatZpravuViewController.m; sourceTree = "<group>"; };
-		F504A596170DE26B00CC300E /* comSeznamFotekKOdeslaniViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comSeznamFotekKOdeslaniViewController.h; sourceTree = "<group>"; };
-		F504A597170DE26B00CC300E /* comSeznamFotekKOdeslaniViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comSeznamFotekKOdeslaniViewController.m; sourceTree = "<group>"; };
+		F504A596170DE26B00CC300E /* comSeznamFoteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comSeznamFoteController.h; sourceTree = "<group>"; };
+		F504A597170DE26B00CC300E /* comSeznamFoteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comSeznamFoteController.m; sourceTree = "<group>"; };
+		F504A599170DFFEA00CC300E /* comFotkaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comFotkaCell.h; sourceTree = "<group>"; };
+		F504A59A170DFFEB00CC300E /* comFotkaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comFotkaCell.m; sourceTree = "<group>"; };
+		F504A59C170E186600CC300E /* comDetailFotkyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comDetailFotkyViewController.h; sourceTree = "<group>"; };
+		F504A59D170E186700CC300E /* comDetailFotkyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comDetailFotkyViewController.m; sourceTree = "<group>"; };
 		F51157A2170C4635002161F4 /* Potravinovy inspektor TV NOVA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Potravinovy inspektor TV NOVA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51157A5170C4635002161F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F51157A7170C4635002161F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -354,8 +360,12 @@
 				F504A58C170DC8AD00CC300E /* comMistaViewController.m */,
 				F504A593170DE17A00CC300E /* comNapsatZpravuViewController.h */,
 				F504A594170DE17A00CC300E /* comNapsatZpravuViewController.m */,
-				F504A596170DE26B00CC300E /* comSeznamFotekKOdeslaniViewController.h */,
-				F504A597170DE26B00CC300E /* comSeznamFotekKOdeslaniViewController.m */,
+				F504A596170DE26B00CC300E /* comSeznamFoteController.h */,
+				F504A597170DE26B00CC300E /* comSeznamFoteController.m */,
+				F504A599170DFFEA00CC300E /* comFotkaCell.h */,
+				F504A59A170DFFEB00CC300E /* comFotkaCell.m */,
+				F504A59C170E186600CC300E /* comDetailFotkyViewController.h */,
+				F504A59D170E186700CC300E /* comDetailFotkyViewController.m */,
 				F51157AC170C4635002161F4 /* Supporting Files */,
 				F504A4F0170D55C300CC300E /* Storyboard-iPhone.storyboard */,
 			);
@@ -520,7 +530,9 @@
 				F504A58D170DC8AD00CC300E /* comMistaViewController.m in Sources */,
 				F504A590170DCC5600CC300E /* comNovaMistaTableViewCell.m in Sources */,
 				F504A595170DE17A00CC300E /* comNapsatZpravuViewController.m in Sources */,
-				F504A598170DE26B00CC300E /* comSeznamFotekKOdeslaniViewController.m in Sources */,
+				F504A598170DE26B00CC300E /* comSeznamFoteController.m in Sources */,
+				F504A59B170DFFEB00CC300E /* comFotkaCell.m in Sources */,
+				F504A59E170E186700CC300E /* comDetailFotkyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -68,18 +68,25 @@
                           objectForKey:UIImagePickerControllerOriginalImage];
         [self.d.fotky addObject:image];
     }
-    UICollectionView *v = [container.subviews objectAtIndex:0];
-    [v reloadData];
+    [self.d.seznamFotek.collectionView reloadData];
 }
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)novaFoto:(id)sender{
-    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    picker.delegate = self;
-    [self.navigationController presentViewController:picker animated:YES completion:nil];
+    if ( [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear]){
+        UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.delegate = self;
+        
+        picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        
+        [self.navigationController presentViewController:picker animated:YES completion:nil];
+    }else{
+        
+    }
 }
 -(void)odeslat:(id)sender{
     
