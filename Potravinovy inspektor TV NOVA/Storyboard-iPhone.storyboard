@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" id="a8b-8R-2WB">
-                                <rect key="frame" x="10" y="196" width="300" height="196"/>
+                                <rect key="frame" x="10" y="179" width="300" height="213"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -131,11 +131,11 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" id="o0b-5u-gS5">
-                                <rect key="frame" x="10" y="12" width="300" height="176"/>
+                                <rect key="frame" x="10" y="12" width="300" height="159"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WxZ-Zg-1sT">
-                                        <rect key="frame" x="247" y="-5" width="40" height="40"/>
+                                        <rect key="frame" x="260" y="-8" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" backgroundImage="Camera.png">
@@ -157,7 +157,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" id="xco-X5-nrM">
-                                        <rect key="frame" x="70" y="43" width="218" height="133"/>
+                                        <rect key="frame" x="60" y="45" width="240" height="112"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <attributedString key="attributedText">
@@ -232,7 +232,7 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="zGC-8F-bvW" customClass="comSeznamFoteController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="SVO-4u-JeC">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="196"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="213"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="frq-Kv-eQF">
@@ -277,11 +277,11 @@
             <objects>
                 <viewController id="GTn-Ih-rw4" customClass="comDetailFotkyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hmi-tK-q98">
-                        <rect key="frame" x="0.0" y="44" width="300" height="108"/>
+                        <rect key="frame" x="0.0" y="44" width="300" height="125"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="QiO-2O-rLs">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="125"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
@@ -411,9 +411,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="comDetailFotkyViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/comDetailFotkyViewController.h"/>
