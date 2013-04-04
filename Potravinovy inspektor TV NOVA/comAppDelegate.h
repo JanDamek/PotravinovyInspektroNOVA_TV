@@ -28,4 +28,6 @@
 @property (strong, nonatomic) comSeznamFoteController *seznamFotek;
 @property int aktFotka;
 
++(UIImage *)scaleImage:(UIImage *)image;
+
 @end
