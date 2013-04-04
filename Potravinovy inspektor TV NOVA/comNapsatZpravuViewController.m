@@ -64,9 +64,11 @@
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
     if ([mediaType isEqualToString:@"public.image"]) {
-        UIImage *image = [info
-                          objectForKey:UIImagePickerControllerOriginalImage];
-        [self.d.fotky addObject:image];
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        //preulozeni pres PNG
+        NSData *d = UIImagePNGRepresentation(image);
+        UIImage *img = [UIImage imageWithData:d];
+        [self.d.fotky addObject:img];
     }
     [self.d.seznamFotek.collectionView reloadData];
 }

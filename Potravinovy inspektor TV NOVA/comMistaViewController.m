@@ -79,7 +79,7 @@
     if (indexPath.section==0){
         cell.image.image = [UIImage imageNamed:@"Map_Pin.png"];
         cell.nazev.text = @"Aktualni pozice";
-        cell.misto.text = [NSString stringWithFormat:@"Lat:%f  Long:%f",self.d.coordinates.latitude, self.d.coordinates.longitude];
+        cell.misto.text = [NSString stringWithFormat:@"%f - %f",self.d.coordinates.latitude, self.d.coordinates.longitude];
     }else{
         NSDictionary *row = [self.d.mista objectAtIndex:indexPath.row];
         NSString *url = [row objectForKey:@"icon"];
@@ -140,6 +140,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.d.vybrano = [indexPath copy];
+    if (indexPath.section>0){
+        self.d.id_mista = [[self.d.mista objectAtIndex:indexPath.row] objectForKey:@"id"];
+    }else{
+        self.d.id_mista = [NSString stringWithFormat:@"id_%f_%f",self.d.coordinates.latitude,self.d.coordinates.latitude];
+    }
 }
 
 @end
