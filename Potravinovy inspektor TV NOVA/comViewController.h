@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+#import "comMistaViewController.h"
 
-@interface comViewController : UIViewController
+@interface comViewController : UIViewController<CLLocationManagerDelegate, MKMapViewDelegate>{
+    CLLocationManager *locationManager;
+    comMistaViewController *seznamMist;
+    
+    NSDate *last_places;
+    
+    NSMutableDictionary *obrazky;
+}
+
+@property (strong, nonatomic) IBOutlet MKMapView *map;
+@property (strong, nonatomic) IBOutlet UIView *container;
+
+-(IBAction)nactiNovaMista:(id)sender;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @class comViewController;
 
@@ -14,6 +15,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) comViewController *viewController;
+@property (strong, nonatomic) NSMutableArray *mista;
+@property (strong, nonatomic) NSMutableArray *odeslano;
+
+@property CLLocationCoordinate2D coordinates;
 
 @end
