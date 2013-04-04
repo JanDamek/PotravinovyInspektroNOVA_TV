@@ -8,6 +8,7 @@
 
 #import "comViewController.h"
 #import "comAppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation comViewController
 
@@ -31,6 +32,9 @@ static NSString *GoogleApiKey = @"AIzaSyBezdSzgQfKNnhiJuQq5SCxn7KYveUzEBk";
     [map setZoomEnabled:YES];
     [map setUserInteractionEnabled:YES];
     [map setScrollEnabled:YES];
+    
+    map.layer.cornerRadius = 10;
+
 }
 
 - (void)didReceiveMemoryWarning

@@ -18,6 +18,9 @@
 @property (strong, nonatomic) NSMutableArray *mista;
 @property (strong, nonatomic) NSMutableArray *odeslano;
 
+@property (strong, nonatomic) NSMutableArray *fotky;
+
 @property CLLocationCoordinate2D coordinates;
+@property (strong, nonatomic) NSIndexPath *vybrano;
 
 @end
