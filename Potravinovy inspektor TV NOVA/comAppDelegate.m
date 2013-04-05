@@ -72,16 +72,16 @@
         double compressionRatio=1;
         NSData *imgData=UIImageJPEGRepresentation(img,compressionRatio);
         UIImage *image;
-        if ([imgData length]>25000) {
+        if ([imgData length]>50000) {
             image = [comAppDelegate scaleImage:img];
-            imgData=UIImageJPEGRepresentation(img,compressionRatio);
+            imgData=UIImageJPEGRepresentation(image,compressionRatio);
         } else
             image = img;
-        while ([imgData length]>250000 && compressionRatio>0.01) {
+        while ([imgData length]>50000 && compressionRatio>0.01) {
             compressionRatio=compressionRatio*0.5;
             imgData=UIImageJPEGRepresentation(image,compressionRatio);
         }
-        NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d",i]];
+        NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d.jpg",i]];
         [imgData writeToFile:dataPath atomically:YES];
         i++;
     }
@@ -93,18 +93,18 @@
     NSString * documentsDirectoryPath = [paths objectAtIndex:0];
     
     int i=0;
-    while ([[NSFileManager defaultManager] fileExistsAtPath:[documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d",i]]]) {
-        NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d",i]];
+    while ([[NSFileManager defaultManager] fileExistsAtPath:[documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d.jpg",i]]]) {
+        NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d.jpg",i]];
         NSData *imgData = [NSData dataWithContentsOfFile:dataPath];
         UIImage *img;
-        if ([imgData length]>25000) {
+        if ([imgData length]>50000) {
             img = [comAppDelegate scaleImage:[UIImage imageWithData:imgData]];
             imgData=UIImageJPEGRepresentation(img,1);
         } else
             img = [UIImage imageWithData:imgData];
         
         double compressionRatio=1;
-        while ([imgData length]>250000 && compressionRatio>0.01) {
+        while ([imgData length]>50000 && compressionRatio>0.01) {
             compressionRatio=compressionRatio*0.5;
             imgData=UIImageJPEGRepresentation(img,compressionRatio);
         }
