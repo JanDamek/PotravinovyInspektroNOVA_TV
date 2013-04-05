@@ -87,6 +87,7 @@
         UIImagePickerController* picker = [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.delegate = self;
+        picker.allowsEditing = NO;
         
         picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
         picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
