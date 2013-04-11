@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "comStoredImage.h"
 
 @interface comDetailFotkyViewController : UIViewController
 

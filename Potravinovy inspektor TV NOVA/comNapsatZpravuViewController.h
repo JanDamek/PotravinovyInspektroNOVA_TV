@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "comAppDelegate.h"
+#import "comStoredImage.h"
 
 @interface comNapsatZpravuViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

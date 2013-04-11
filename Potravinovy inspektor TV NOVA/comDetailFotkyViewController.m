@@ -32,7 +32,7 @@
     [super viewDidAppear:animated];
 
     comAppDelegate *d = (comAppDelegate*)[[UIApplication sharedApplication]delegate];
-    image.image = [d.fotky objectAtIndex:d.aktFotka];
+    image.image = [(comStoredImage*)[d.fotky objectAtIndex:d.aktFotka] image];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -42,7 +42,7 @@
 
 -(void)moveToTrash:(id)sender{
     comAppDelegate *d = (comAppDelegate*)[[UIApplication sharedApplication]delegate];
-    [d.fotky removeObjectAtIndex:d.aktFotka];
+    [d.fotky removeImageAtIndex:d.aktFotka];
     [d.seznamFotek.collectionView reloadData];
 
     [self.navigationController popViewControllerAnimated:YES];

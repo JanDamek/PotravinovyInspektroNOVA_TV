@@ -63,7 +63,6 @@
 		F504A571170D585500CC300E /* Radio.png in Resources */ = {isa = PBXBuildFile; fileRef = F504A52A170D585500CC300E /* Radio.png */; };
 		F504A572170D585500CC300E /* Referesh.png in Resources */ = {isa = PBXBuildFile; fileRef = F504A52B170D585500CC300E /* Referesh.png */; };
 		F504A573170D585500CC300E /* Search.png in Resources */ = {isa = PBXBuildFile; fileRef = F504A52C170D585500CC300E /* Search.png */; };
-		F504A574170D585500CC300E /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F504A52D170D585500CC300E /* Settings.png */; };
 		F504A575170D585500CC300E /* singal.PNG in Resources */ = {isa = PBXBuildFile; fileRef = F504A52E170D585500CC300E /* singal.PNG */; };
 		F504A576170D585500CC300E /* singalHrz.png in Resources */ = {isa = PBXBuildFile; fileRef = F504A52F170D585500CC300E /* singalHrz.png */; };
 		F504A577170D585500CC300E /* StopWatch.png in Resources */ = {isa = PBXBuildFile; fileRef = F504A530170D585500CC300E /* StopWatch.png */; };
@@ -98,6 +97,9 @@
 		F51157BF170C4635002161F4 /* comViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51157BE170C4635002161F4 /* comViewController.m */; };
 		F51157CC170C4740002161F4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51157CB170C4740002161F4 /* CoreLocation.framework */; };
 		F51157CE170C4887002161F4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51157CD170C4887002161F4 /* MapKit.framework */; };
+		F5A899F11711D13000685CF7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5A899F01711D13000685CF7 /* Settings.bundle */; };
+		F5A899F31711D28100685CF7 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A899F21711D28100685CF7 /* Settings.png */; };
+		F5E8186617115A8E00F2F0CD /* comStoredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8186517115A8E00F2F0CD /* comStoredImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,7 +159,6 @@
 		F504A52A170D585500CC300E /* Radio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Radio.png; sourceTree = "<group>"; };
 		F504A52B170D585500CC300E /* Referesh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Referesh.png; sourceTree = "<group>"; };
 		F504A52C170D585500CC300E /* Search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Search.png; sourceTree = "<group>"; };
-		F504A52D170D585500CC300E /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		F504A52E170D585500CC300E /* singal.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = singal.PNG; sourceTree = "<group>"; };
 		F504A52F170D585500CC300E /* singalHrz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = singalHrz.png; sourceTree = "<group>"; };
 		F504A530170D585500CC300E /* StopWatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StopWatch.png; sourceTree = "<group>"; };
@@ -203,6 +204,10 @@
 		F51157BE170C4635002161F4 /* comViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = comViewController.m; sourceTree = "<group>"; };
 		F51157CB170C4740002161F4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F51157CD170C4887002161F4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F5A899F01711D13000685CF7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F5A899F21711D28100685CF7 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Settings.png; path = 32x32/Settings.png; sourceTree = "<group>"; };
+		F5E8186417115A8E00F2F0CD /* comStoredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comStoredImage.h; sourceTree = "<group>"; };
+		F5E8186517115A8E00F2F0CD /* comStoredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comStoredImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,7 +294,6 @@
 				F504A52A170D585500CC300E /* Radio.png */,
 				F504A52B170D585500CC300E /* Referesh.png */,
 				F504A52C170D585500CC300E /* Search.png */,
-				F504A52D170D585500CC300E /* Settings.png */,
 				F504A52E170D585500CC300E /* singal.PNG */,
 				F504A52F170D585500CC300E /* singalHrz.png */,
 				F504A530170D585500CC300E /* StopWatch.png */,
@@ -312,6 +316,7 @@
 			children = (
 				F504A583170D61E700CC300E /* Message.png */,
 				F504A584170D61E700CC300E /* Message_Create.png */,
+				F5A899F21711D28100685CF7 /* Settings.png */,
 			);
 			name = 32x32;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 		F51157AB170C4635002161F4 /* Potravinovy inspektor TV NOVA */ = {
 			isa = PBXGroup;
 			children = (
+				F5E8186317115A6B00F2F0CD /* classes */,
 				F504A4F2170D57DE00CC300E /* images */,
 				F51157B4170C4635002161F4 /* comAppDelegate.h */,
 				F51157B5170C4635002161F4 /* comAppDelegate.m */,
@@ -382,8 +388,18 @@
 				F51157B7170C4635002161F4 /* Default.png */,
 				F51157B9170C4635002161F4 /* Default@2x.png */,
 				F51157BB170C4635002161F4 /* Default-568h@2x.png */,
+				F5A899F01711D13000685CF7 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5E8186317115A6B00F2F0CD /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				F5E8186417115A8E00F2F0CD /* comStoredImage.h */,
+				F5E8186517115A8E00F2F0CD /* comStoredImage.m */,
+			);
+			name = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,7 +514,6 @@
 				F504A571170D585500CC300E /* Radio.png in Resources */,
 				F504A572170D585500CC300E /* Referesh.png in Resources */,
 				F504A573170D585500CC300E /* Search.png in Resources */,
-				F504A574170D585500CC300E /* Settings.png in Resources */,
 				F504A575170D585500CC300E /* singal.PNG in Resources */,
 				F504A576170D585500CC300E /* singalHrz.png in Resources */,
 				F504A577170D585500CC300E /* StopWatch.png in Resources */,
@@ -514,6 +529,8 @@
 				F504A581170D585500CC300E /* Zoom.png in Resources */,
 				F504A585170D61E700CC300E /* Message.png in Resources */,
 				F504A586170D61E700CC300E /* Message_Create.png in Resources */,
+				F5A899F11711D13000685CF7 /* Settings.bundle in Resources */,
+				F5A899F31711D28100685CF7 /* Settings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +550,7 @@
 				F504A598170DE26B00CC300E /* comSeznamFoteController.m in Sources */,
 				F504A59B170DFFEB00CC300E /* comFotkaCell.m in Sources */,
 				F504A59E170E186700CC300E /* comDetailFotkyViewController.m in Sources */,
+				F5E8186617115A8E00F2F0CD /* comStoredImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

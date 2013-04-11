@@ -12,7 +12,9 @@
 
 @class comViewController;
 
-@interface comAppDelegate : UIResponder <UIApplicationDelegate>
+@interface comAppDelegate : UIResponder <UIApplicationDelegate>{
+    int _countOfAnimationIndicator;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -28,6 +30,9 @@
 @property (strong, nonatomic) comSeznamFoteController *seznamFotek;
 @property int aktFotka;
 
-+(UIImage *)scaleImage:(UIImage *)image;
+@property (strong, nonatomic) UIActivityIndicatorView *activity;
+
+-(void)addAnimationIndicator;
+-(void)removeAnimationIndicator;
 
 @end

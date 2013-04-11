@@ -54,7 +54,7 @@
     comFotkaCell *cell = (comFotkaCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.layer.cornerRadius = 5;
     
-    cell.image.image = [[self getDelegate].fotky objectAtIndex:indexPath.row];
+    cell.image.image = [(comStoredImage*)[[self getDelegate].fotky objectAtIndex:indexPath.row]thumbnails];
     
     return cell;
 }

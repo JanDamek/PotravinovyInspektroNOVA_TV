@@ -64,16 +64,8 @@
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
     if ([mediaType isEqualToString:@"public.image"]) {
-        double compressionRatio=1;
-        NSData *imgData=UIImageJPEGRepresentation([info objectForKey:@"UIImagePickerControllerOriginalImage"],compressionRatio);
-        UIImage *img = [comAppDelegate scaleImage:[UIImage imageWithData:imgData]];
-        imgData=UIImageJPEGRepresentation(img,compressionRatio);
-        
-        while ([imgData length]>50000 && compressionRatio>0.01) {
-            compressionRatio=compressionRatio*0.5;
-            imgData=UIImageJPEGRepresentation(img,compressionRatio);
-        }
-        img=[[UIImage alloc] initWithData:imgData];
+        UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        comStoredImage *img = [[comStoredImage alloc]initWithImage:image forKey:@""];
         [self.d.fotky addObject:img];
     }
     [self.d.seznamFotek.collectionView reloadData];
@@ -87,7 +79,7 @@
         UIImagePickerController* picker = [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.delegate = self;
-        picker.allowsEditing = NO;
+        picker.allowsEditing = YES;
         
         picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
         picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;

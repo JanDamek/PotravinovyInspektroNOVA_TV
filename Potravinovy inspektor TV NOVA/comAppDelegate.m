@@ -7,8 +7,8 @@
 //
 
 #import "comAppDelegate.h"
-
 #import "comViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation comAppDelegate
 
@@ -17,10 +17,33 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     mista = [[NSMutableArray alloc]init];
-    odeslano = [[NSMutableArray alloc]init];
-    [self loadFotky];
+    odeslano = [NSKeyedUnarchiver unarchiveObjectWithFile:[self storeFileName:@"odeslano"]];
+    fotky = [NSKeyedUnarchiver unarchiveObjectWithFile:[self storeFileName:@"fotky"]];
+    if (!odeslano)
+       odeslano = [[NSMutableArray alloc]init];
+    if (!fotky)
+        fotky = [[NSMutableArray alloc]init];
     
     [self.window makeKeyAndVisible];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        _activity = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(110, 185, 57, 57)];
+        _activity.center = CGPointMake(160, 260);
+    }else{
+        _activity = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(200, 300, 57, 57)];
+        _activity.center = CGPointMake(384, 512);
+        
+    }
+    [_activity setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleWhiteLarge];
+    _activity.layer.cornerRadius = 10;
+    [_activity setBackgroundColor:[UIColor grayColor]];
+    
+    //[self.window.rootViewController.view addSubview:_activity];
+    [self.window addSubview:_activity];
+    _activity.hidesWhenStopped=YES;
+    [_activity setHidden:NO];
+    [_activity startAnimating];
+    
     return YES;
 }
 
@@ -29,94 +52,23 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
-
-+(UIImage *)scaleImage:(UIImage *)image{
+-(NSString*)storeFileName:(NSString*)name{
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     
-    float width = image.size.width / 2;
-    float height = image.size.height / 2;
-    CGSize newSize = CGSizeMake(width, height);
-    
-    UIGraphicsBeginImageContext(newSize);
-    CGRect rect = CGRectMake(0, 0, width, height);
-    
-    float widthRatio = image.size.width / width;
-    float heightRatio = image.size.height / height;
-    float divisor = widthRatio > heightRatio ? widthRatio : heightRatio;
-    
-    width = image.size.width / divisor;
-    height = image.size.height / divisor;
-    
-    rect.size.width  = width;
-    rect.size.height = height;
-    
-    if(height < width)
-        rect.origin.y = height / 3;
-    [image drawInRect: rect];
-    
-    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return smallImage;
-    
+    return [basePath stringByAppendingPathComponent:[NSString stringWithFormat:@"s_1_%@.dat",name]];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES);
-    NSString * documentsDirectoryPath = [paths objectAtIndex:0];
-    
-    int i=0;
-    for (UIImage *img in fotky) {
-        double compressionRatio=1;
-        NSData *imgData=UIImageJPEGRepresentation(img,compressionRatio);
-        UIImage *image;
-        if ([imgData length]>50000) {
-            image = [comAppDelegate scaleImage:img];
-            imgData=UIImageJPEGRepresentation(image,compressionRatio);
-        } else
-            image = img;
-        while ([imgData length]>50000 && compressionRatio>0.01) {
-            compressionRatio=compressionRatio*0.5;
-            imgData=UIImageJPEGRepresentation(image,compressionRatio);
-        }
-        NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d.jpg",i]];
-        [imgData writeToFile:dataPath atomically:YES];
-        i++;
-    }
-}
-
--(void)loadFotky{
-    fotky = [[NSMutableArray alloc]init];
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES);
-    NSString * documentsDirectoryPath = [paths objectAtIndex:0];
-    
-    int i=0;
-    while ([[NSFileManager defaultManager] fileExistsAtPath:[documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d.jpg",i]]]) {
-        NSString *dataPath = [documentsDirectoryPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"img_%d.jpg",i]];
-        NSData *imgData = [NSData dataWithContentsOfFile:dataPath];
-        UIImage *img;
-        if ([imgData length]>50000) {
-            img = [comAppDelegate scaleImage:[UIImage imageWithData:imgData]];
-            imgData=UIImageJPEGRepresentation(img,1);
-        } else
-            img = [UIImage imageWithData:imgData];
-        
-        double compressionRatio=1;
-        while ([imgData length]>50000 && compressionRatio>0.01) {
-            compressionRatio=compressionRatio*0.5;
-            imgData=UIImageJPEGRepresentation(img,compressionRatio);
-        }
-        
-        [fotky addObject:[UIImage imageWithData:imgData]];
-        i++;
-    }
+    [NSKeyedArchiver archiveRootObject:self.odeslano toFile:[self storeFileName:@"odeslano"]];
+    [NSKeyedArchiver archiveRootObject:self.fotky toFile:[self storeFileName:@"fotky"]];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [self loadFotky];
+    odeslano = [NSKeyedUnarchiver unarchiveObjectWithFile:[self storeFileName:@"odeslano"]];
+    fotky = [NSKeyedUnarchiver unarchiveObjectWithFile:[self storeFileName:@"fotky"]];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -127,6 +79,21 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)addAnimationIndicator{
+    _countOfAnimationIndicator++;
+    //[self.window.rootViewController.view addSubview:_activity];
+    [_activity startAnimating];
+}
+
+-(void)removeAnimationIndicator{
+    _countOfAnimationIndicator--;
+    if (_countOfAnimationIndicator<=0){
+        _countOfAnimationIndicator = 0;
+        [_activity stopAnimating];
+        
+    }
 }
 
 @end
