@@ -271,7 +271,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdo-wn-SUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1918" y="560"/>
+            <point key="canvasLocation" x="2322" y="192"/>
         </scene>
         <!--Com Detail Fotky View Controller - Náhled fotografie-->
         <scene sceneID="POh-ZJ-xcZ">
@@ -305,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyI-6h-VHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2359" y="560"/>
+            <point key="canvasLocation" x="2322" y="535"/>
         </scene>
         <!--Navigation Controller - Nová zpráva-->
         <scene sceneID="8Ro-lF-mTG">
